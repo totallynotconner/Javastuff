@@ -1,0 +1,15 @@
+import gpdraw.*;
+
+public class Driver {
+
+	public static void main(String args[]) {
+
+		SketchPad pad = new SketchPad(500, 500);
+		DrawingTool marco = new DrawingTool(pad);
+
+		DrawnSphere Jeff = new DrawnSphere(10.0, 10.0, 100.0);
+		Jeff.draw(marco);
+		// Jeff.nameSphere(marco, "Jeff");
+	}
+
+}

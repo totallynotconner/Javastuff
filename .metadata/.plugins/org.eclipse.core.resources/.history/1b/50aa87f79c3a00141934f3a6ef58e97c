@@ -1,0 +1,140 @@
+import java.awt.Color;
+
+import gpdraw.DrawingTool;
+import gpdraw.SketchPad;
+
+public class DrawnSphere {
+
+	private double myX; // the x coordinate of the sphere
+	private double myY; // the y coordinate of the sphere
+	private double myZ; // the z coordinate of the sphere
+	private double myRadius; // the radius of the sphere
+
+	// Creates a default instance of a sphere object with all dimensions
+	// set to zero.
+	// If you pass nothing in, then you get nothing out
+	public DrawnSphere() {
+		myX = 0.0;
+		myY = 0.0;
+		myZ = 0.0;
+		myRadius = 0.0;
+	}
+
+	// this makes a new sphere
+	// whatever you pass in gets set to my fields, below
+	public DrawnSphere(double x, double y, double z, double radius) {
+
+		myX = x;
+		myY = y;
+		myZ = z;
+		myRadius = radius;
+
+	}
+
+	// Calculates and returns the surface area of the sphere
+	// Call on a sphere, returns a double of the surface area
+	public double getSurfaceArea() {
+
+		return 4.0 * Math.PI * (myRadius * myRadius);
+
+	}
+
+	// Calculates and returns the area of the sphere
+	// Call it on a sphere, get a free double
+	public double getVolume() {
+		return 4.0 / 3.0 * Math.PI * (myRadius * myRadius * myRadius);
+	}
+
+	// names sphere
+	// Gimme a drawingtool and a name and I'll name your sphere
+	public void nameSphere(DrawingTool marco, String name) {
+
+		int randomInt = (int) (Math.random() * 6);
+
+		marco.up();
+		marco.move(myX + myRadius, myY + myRadius + 10);
+		marco.down();
+
+		if (randomInt == 0) {
+			marco.setColor(Color.yellow);
+			marco.drawString(name + ", the Unreadable");
+
+		} else if (randomInt == 1) {
+			marco.setColor(Color.pink);
+			marco.drawString(name + ", Destroyer of Worlds");
+
+		} else if (randomInt == 2) {
+			marco.setColor(Color.red);
+			marco.drawString(name + " the Victorious");
+
+		} else if (randomInt == 3) {
+			marco.setColor(new Color(128, 0, 128));
+			marco.drawString(name + ", of the Pygmy Hippopotami");
+
+		} else if (randomInt == 4) {
+			marco.setColor(new Color(255, 235, 205));
+			marco.drawString(name + ", of the Blanched Almonds");
+
+		} else if (randomInt == 5) {
+			marco.setColor(Color.MAGENTA);
+			marco.drawString(name + ", the not-quite-purple");
+
+		} else if (randomInt == 6) {
+			marco.drawString(name + " the Boring");
+
+		}
+
+	}
+
+	//Gimme a drawingtool and color and I'll change the color
+	//of your sphere, free of charge.
+	//otherwise I'll crash.
+	public void setSphereColor(DrawingTool marco, Color sphereColor) {
+
+		marco.setColor(sphereColor);
+
+	}
+
+	// You pass in a double
+	// It gets added to myRadius field
+	// I like the word "embiggen"
+	public void embiggen(double large) {
+
+		myRadius += large;
+
+	}
+
+	// Give me a drawingtool, I'll draw a sphere.
+	// Almost made a shader engine. Would've been cool, but it's hard.
+
+	public void draw(DrawingTool marco) {
+
+		int R = 128, G = 128, B = 128;
+		int temp = 1;
+		int shaderInt = 1;
+		Integer tempRadius = (int)myRadius;
+		int color = 255 / tempRadius;
+		/*
+		marco.turn(270);
+		marco.up();
+		marco.move(myX, myY);
+		marco.down();
+		marco.drawCircle(myRadius);
+		marco.turn(180);
+		marco.drawOval(myRadius * 2, myRadius * .5);
+		 */
+		
+		for (int i = 1; i <= myRadius * 100 && R <= 255 && R >= 0; i++) {
+			marco.setColor(new Color(R * color, G * color, B * color);
+			marco.drawCircle(tempRadius--);
+			R += 1;
+			G += 1;
+			B += 1;
+
+		}
+		 
+	}
+
+
+
+}

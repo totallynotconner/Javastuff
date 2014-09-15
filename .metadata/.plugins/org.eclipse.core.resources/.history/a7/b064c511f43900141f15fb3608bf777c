@@ -1,0 +1,10 @@
+import gpdraw.*;
+
+
+public class Driver {
+
+	public static void main(String args[]) {
+		DrawnRectangle Paco = new DrawnRectangle(10.0,10.0,10.0,10.0);
+	}
+	
+}

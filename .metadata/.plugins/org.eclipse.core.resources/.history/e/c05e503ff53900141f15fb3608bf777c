@@ -1,0 +1,65 @@
+import gpdraw.*;
+
+public class DrawnRectangle {
+
+	private double myX; // the x coordinate of the rectangle
+	private double myY; // the y coordinate of the rectangle
+	private double myWidth; // the width of the rectangle
+	private double myHeight; // the height of the rectangle
+
+	// Creates a default instance of a Rectangle object with all dimensions
+	// set to zero.
+	public DrawnRectangle() {
+		myX = 0.0;
+		myY = 0.0;
+		myWidth = 0.0;
+		myHeight = 0.0;
+		SketchPad Jeff = new SketchPad(500,500);
+	}
+
+	// Creates a new instance of a Rectangle object with the left and right
+	// edges of the rectangle at x and x + width. The top and bottom edges
+	// are at y and y + height.
+	public DrawnRectangle(double x, double y, double width, double height) {
+
+		myX = x;
+		myY = y;
+		myWidth = width;
+		myHeight = height;
+		SketchPad Jeff = new SketchPad(500,500);
+
+	}
+
+	// Calculates and returns the perimeter of the rectangle
+	public double getPerimeter() {
+		
+		return 2 * (myWidth + myHeight);
+
+	}
+
+	// Calculates and returns the area of the rectangle
+	public double getArea() {
+		return  myWidth * myHeight;
+
+	}
+
+	// Draws a new instance of a Rectangle object with the left and right
+	// edges of the rectangle at x and x + width. The top and bottom edges
+	// are at y and y + height.
+	public void draw(DrawingTool marco) {
+
+		marco = new DrawingTool();
+		marco.move(myX, myY);
+		marco.down();
+		marco.drawRect(myWidth, myHeight);
+		marco.up();
+	}
+	
+	
+	//Draws a fancy string with the rectangle's name
+	public void nameRect(DrawingTool marco) {
+		marco = new DrawingTool();
+		
+	}
+
+}
